@@ -38,6 +38,22 @@ resource "aws_security_group" "honeypot_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  ingress {
+    description = "Honeypot access"
+    from_port   = 2222
+    to_port     = 2222
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  
+  ingress {
+    description = "Honeypot access"
+    from_port   = 2223
+    to_port     = 2223
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   tags = {
     Name = "honeypot-ssh-sg"
   }
